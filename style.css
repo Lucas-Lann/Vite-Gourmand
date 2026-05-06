@@ -6,9 +6,12 @@ body {
     .gourmand{
         color: #7F1734;
     }
+
+    .vite { 
+        color: white;
+    }
 }
 
-/* Container */
 
 .container {
     max-width: 1200px;
@@ -66,18 +69,32 @@ body {
     color: #7F1734;
 }
 
+.burger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
 /* Hero-Section  */
 
 .hero {
-    background-image: url("images/herofigma.jpg"); 
+    background-image: url("images/herofigma.jpg");
     background-size: cover;
     background-position: center;
+     background-repeat: no-repeat;
     height: 400px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     
+}
+
+/* Image accueil */
+.hero-home {
+    background-image: url("images/herofigma.jpg");
 }
 
 /* Texte centré */
@@ -93,9 +110,9 @@ body {
     font-size: 40px;
 }
 
-.vite {
+/* .vite {
     color: white;
-}
+} */
 
 
 /* Bouton */
@@ -232,15 +249,608 @@ body {
     color: #7F1734;
 }
 
+/* Avis clients */
 
+.avis {
+    background-color: #E8DFC5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.avis h2 {
+    margin-bottom: 40px;
+    color: #9ca234;
+}
+
+
+.avis-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.avis-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 250px;
+}
+
+
+.etoiles {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+
+.avis-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.avis {
+    position: relative;
+}
+
+.avis-signature {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #7F1734;
+    font-weight: bold;
+}
+
+.vite {
+    color: black;
+}
+
+.gourmand {
+    color: #7F1734;
+}
+
+
+
+
+
+/* RESPONSIVE  */
+
+@media (max-width: 768px) {
+
+    .header .container {
+        flex-direction: row;
+    }
+
+   
+    .nav ul {
+        display: none; 
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .hero-content h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    
+    .presentation-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .presentation .text {
+        max-width: 100%;
+    }
+
+    .presentation img {
+        width: 100%;
+        height: auto;
+    }
+
+    
+    .produits-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .avis-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+/* Menu burger mobile  */
+
+@media (max-width: 768px) {
+
+    .burger {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #E8DFC5;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+}
+
+/* Page Menus  */
+
+.Les-menus{
+    background-color: #E8DFC5;
+}
+
+/* FILTRES */
+
+.filtres {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 40px 20px;
+
+    background-color: #E8DFC5;
+}
+
+.filtres select {
+    padding: 10px 20px;
+
+    border: 2px solid #7F1734;
+    border-radius: 20px;
+
+    background-color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    cursor: pointer;
+}
+
+.btn-filtre {
+    padding: 10px 25px;
+
+    background-color: #7F1734;
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+
+    
+}
+
+/* RESPONSIVE FILTRES */
+
+@media (max-width: 768px) {
+
+    .filtres {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .filtres select,
+    .btn-filtre {
+        width: 50%;
+    }
+
+}
+
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    justify-content: space-evenly;
+    padding: 30px;
+    text-align: center;
+    gap: 40px;
+}
+
+.menu-card img {
+    width: 50%;
+    height: 180px;        
+    object-fit: cover;    
+    border-radius: 15px;
+}
+
+.bouton-detail { 
+    background-color: #7F1734;
+    color: white;
+    border-radius: 10px;
+    border: black 2px solid;
+  
+}
+
+.bouton-detail a {
+color: white;
+text-decoration: none;
+
+}
+
+.menu-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+/* responsive menu page  */
+
+@media (max-width: 768px) {
+
+    .menu-grid {
+        grid-template-columns: 1fr; 
+        padding: 20px;
+    }
+
+    .menu-card {
+        text-align: center;
+    }
+
+    .menu-card img {
+        height: 150px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .menu-info {
+        text-align: center;
+    }
+
+    .menu-info ul {
+        text-align: center;
+    }
+
+}
+
+/* contact page  */
+
+
+.formulaire{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* MAIN  */
+
+.Formulaire-contact{
+    background-color: #E8DFC5;
+    padding: 60px 20px;
+}
+
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Texte gauche */
+
+.contact-info {
+    flex: 1;
+    text-align: center;
+}
+
+.contact-info img {
+    width: 100px;
+    margin-top: 20px;
+}
+
+/* Formulaire */
+
+.contact-form {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px;
+    border: 2px solid #7F1734;
+    background-color: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form textarea {
+    height: 150px;
+   
+}
+
+/* Bouton */
+
+.contact-form button {
+    width: fit-content;
+
+    padding: 10px 30px;
+
+    background-color: #7F1734;
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+     align-self: center; 
+}
+
+/* Responsive Contact page  */
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+
+}
+
+/* 
+Galerie page  */
+
+.hero-galerie {
+    color:black;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+
+
+.galerie {
+    background-color: #E8DFC5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+
+
+.galerie-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 40px;
+
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+
+.galerie-grid img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+
+
+.galerie-grid img:hover {
+    transform: scale(1.03);
+}
+
+
+
+.btn-galerie {
+    display: inline-block;
+
+    margin-top: 50px;
+
+    padding: 10px 25px;
+
+    background-color: #7F1734;
+    color: white;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+}
+
+/* responsive galerie */
+
+@media (max-width: 768px) {
+
+    .galerie-grid {
+        grid-template-columns: repeat(2, 1fr);
+       
+    }
+
+    .galerie-grid img {
+         width: 130px;
+
+    }
+
+}
+
+/* MENUS NOEL  */  /* MENUS PAQUES */  /* MENU MARIAGE  */ /* MENU CLASSIQUE  */
+
+
+.menus-choice {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    padding: 60px 20px;
+
+    background-color: #E8DFC5;
+}
+
+
+
+.menu-card {
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    width: 350px;
+
+    text-align: center;
+}
+
+
+.menu-card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+
+.menu-card h2 {
+    color: #7F1734;
+}
+
+.menu-card h3 {
+    margin-top: 20px;
+}
+
+
+
+.bouton-commande{
+    background-color:#E8DFC5;
+    color: #7F1734;
+    border-radius: 20px;
+    border: black 2px solid;
+    text-decoration: none;
+    font-weight: bolder;
+    padding: 10px 25px;
+     margin-top: 15px;
+}
+
+
+.bouton-commande a {
+    color: #7F1734;
+    text-decoration: none;
+}
+
+
+
+.bouton-commande a:hover {
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .menus-choice {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
 
 
 
 /* FOOTER */
 
-footer {
+.footer {
     background-color: #7F1734;
     color: white;
+    padding: 50px 20px;
+}
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
     text-align: center;
-    padding: 15px;
+    gap: 30px;
+}
+
+
+
+.horaires h4 {
+    color: #9ca234;
+}
+
+
+.contact h4 {
+    margin-bottom: 15px;
+    color: #9ca234;
+}
+
+
+.contact p {
+    margin: 5px 0;
+}
+
+
+.droit-reserver{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
 }

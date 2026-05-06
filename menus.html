@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos menus</title>
+
+     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+     <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+
+            <div class="logo">
+               <a href="index.html"><img src="images/logo.png" alt="Logo Vite&Gourmand"></a>
+                  </div>
+
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="menus.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="galerie.html" class="commande">Galerie</a></li>
+                  <li><a href="#" class="connexion">Connexion</a></li>
+                </ul>
+            </nav>
+
+            
+            <div class="burger" id="burger">
+               ☰
+</div>
+
+        </div>
+    </header>
+
+    <!-- hero-Header -->
+
+    <section class="hero">
+
+    <div class="hero-content">
+        <h2>
+             <span class="vite">Vite</span>&<span class="gourmand">Gourmand</span>
+        </h2>
+        <p>Des prestations culinaires d’exception</p>
+        <button>Réserver</button>
+    </div>
+</section>
+
+<!-- Main  -->
+         
+<section class="Les-menus">
+
+    <section class="filtres">
+
+    <select id="filtre-theme">
+        <option value="all">Tous les thèmes</option>
+        <option value="noel">Noël</option>
+        <option value="paques">Pâques</option>
+        <option value="mariage">Mariage</option>
+        <option value="classique">Classique</option>
+    </select>
+
+    <select id="filtre-prix">
+        <option value="all">Prix maximum</option>
+        <option value="30">30€</option>
+        <option value="40">40€</option>
+        <option value="80">80€</option>
+    </select>
+
+       <select id="filtre-nb-personnes">
+        <option value="all">Nombre de personnes</option>
+        <option value="2">Minimun 2 personnes</option>
+        <option value="4">Minimun 4 personnes</option>
+        <option value="6">Minimun 6 personnes</option>
+        <option value="20">Minimun 20 personnes</option>
+    </select>
+
+     <select id="filtre-alergenes">
+        <option value="all"> allergène</option>
+         <option value="gluten">Aucun allergène</option>
+        <option value="gluten">Gluten</option>
+        <option value="lactose">Lactose</option>
+        <option value="oeufs">Oeufs</option>
+    </select>
+
+
+    <button class="btn-filtre">Rechercher</button>
+
+</section>
+
+<section class="menus">
+    <div class="menu-grid">
+
+        <!-- Menu noel -->
+        <div class="menu-card">
+            <img src="images/noel.avif">
+            <h3>Menu Noël</h3>
+            <p>Un menu raffiné pour vos repas de fin d’année</p>
+
+            <ul>
+                <li>Minimum 6 personnes</li>
+                <li>À partir de 35€/pers</li>
+                <li>Réservation 3 semaines à l’avance</li>
+            </ul>
+
+            <button class="bouton-detail"><a href="menunoel.html">Voir le détail</a></button>
+        </div>
+
+        <!-- Menu paques -->
+        <div class="menu-card">
+            <img src="images/paques.jpg">
+            <h3>Menu Pâques</h3>
+            <p>Un menu festif pour célébrer</p>
+
+            <ul>
+                <li>Minimum 4 personnes</li>
+                <li>À partir de 30€/pers</li>
+                <li>Réservation 1 semaine</li>
+            </ul>
+
+            <button class="bouton-detail"><a href="menupaques.html">Voir le détail</a></button>
+        </div>
+
+        <!-- Menu mariage -->
+        <div class="menu-card">
+            <img src="images/mariages.jpg">
+            <h3>Menu Mariage</h3>
+            <p>Menu sur mesure pour événements</p>
+
+            <ul>
+                <li>Minimum 30 personnes</li>
+                <li>À partir de 75€/pers</li>
+                <li>Réservation 2 semaines</li>
+            </ul>
+
+            <button class="bouton-detail"><a href="menumariages.html">Voir le détail</a></button>
+        </div>
+
+        <!-- Menu classique -->
+        <div class="menu-card">
+            <img src="images/classique.avif">
+            <h3>Menu Classique</h3>
+            <p>Simple et savoureux</p>
+
+            <ul>
+                <li>Minimum 2 personnes</li>
+                <li>À partir de 25€/pers</li>
+                <li>Réservation 48h</li>
+            </ul>
+
+            <button class="bouton-detail"><a href="menuclassique.html">Voir le détail</a></button>
+        </div>
+
+    </div>
+</section>
+    
+
+</section>
+    
+    <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="horaires">
+            <h4>Horaires</h4>
+            <p>Lundi - Dimanche</p>
+            <p>12h00 - 14h30</p>
+            <p>18h00 - 22h30</p>
+        </div>
+
+        <div class="adresse">
+            <h4>Vite&Gourmand</h4>
+            <p>5 rue de Bordeaux</p>
+            <p>33000 Bordeaux</p>
+        </div>
+
+        <div class="contact">
+            <h4>Contact</h4>
+            <p>vite&gourmand@email.com</p>
+            <p>05 56 00 00 00</p>
+        </div>
+
+    </div>
+
+    <div class="droit-reserver">
+        <p>© 2026 Vite&Gourmand - Tous droits réservés</p>
+    </div>
+
+</footer>
+
+ <script src="script.js"></script>
+</body>
+</html>

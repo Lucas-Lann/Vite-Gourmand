@@ -17,24 +17,34 @@
         <div class="container">
 
             <div class="logo">
-               <img src="images/logo.png" alt="Logo Vite&Gourmand">
+               <a href="index.html"><img src="images/logo.png" alt="Logo Vite&Gourmand"></a>
                   </div>
 
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#" class="commande">Commande</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="menus.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="galerie.html" class="commande">Galerie</a></li>
                   <li><a href="#" class="connexion">Connexion</a></li>
                 </ul>
             </nav>
+
+            
+            <div class="burger" id="burger">
+               ☰
+</div>
+
         </div>
     </header>
 
       <!-- hero-Section -->
 
+     
+
     <section class="hero">
+
+        
 
     <div class="hero-content">
         <h2>
@@ -67,7 +77,7 @@ Grâce à des menus évolutifs, une cuisine de qualité et un service personnali
     </div>
 
            <div class="btn-center">
-        <button class="Nosmenus"><a href="#">Nos menus</a></button>
+        <button class="Nosmenus"><a href="menus.html">Nos menus</a></button>
     </div>
 </div>
 </div>
@@ -88,45 +98,82 @@ Grâce à des menus évolutifs, une cuisine de qualité et un service personnali
     </div>
 
            <div class="btn-center">
-        <button class="Voirlagalerie"><a href="#">Voir la galerie</a></button>
+        <button class="Voirlagalerie"><a href="galerie.html">Voir la galerie</a></button>
     </div>
 </div>
 </div>
 
-<!-- Presentation de L'entreprise  -->
-    <div class="presentation">
-    <h2 class="title">Bienvenue chez Vite&Gourmand</h2>
+<!-- Avis clients -->
+   
 
-    <div class="presentation-content">
-        <div class="text">
-            <p>
-               Depuis plus de 25 ans à Bordeaux, Vite & <span class="gourmand">Gourmand</span>  vous accompagne dans l’organisation de vos réceptions, mariages, fêtes saisonnières et événements sur mesure.
-Grâce à des menus évolutifs, une cuisine de qualité et un service personnalisé, l’entreprise met son savoir-faire au service de chaque occasion.
-            </p>
+<section class="avis">
+    <h2>Avis clients vérifiés</h2>
 
-            
+    <div class="avis-container">
+
+        <div class="avis-card">
+            <p class="etoiles">★★★★★</p>
+            <p>Un service exceptionnel et des plats délicieux. Je recommande !</p>
+            <span>- Marie</span>
         </div>
 
-        <div class="image">
-            <img src="images/chef.avif" alt="Chef-cuisinier">
+        <div class="avis-card">
+            <p class="etoiles">★★★★★</p>
+            <p>Une expérience incroyable, tout était parfait.</p>
+            <span>- Julien</span>
         </div>
-    </div>
 
-           <div class="btn-center">
-        <button class="Nosmenus"><a href="#">Nos menus</a></button>
+        <div class="avis-card">
+            <p class="etoiles">★★★★★</p>
+            <p>Très professionnel et cuisine de qualité. Merci !</p>
+            <span>- Sophie</span>
+        </div>
+
+         <p class="avis-signature">
+
+    <span class="vite">Vite&</span>
+    <span class="gourmand">Gourmand</span>
+</p>
+
     </div>
-</div>
-</div>
+    
+</section>
 
 
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <p>© 2026-vite&gourmand@hotmail.fr -Tout-droit-réserver</p>
-    </footer>
+  <footer class="footer">
 
+    <div class="footer-content">
 
+        <div class="horaires">
+            <h4>Horaires</h4>
+            <p>Lundi - Dimanche</p>
+            <p>12h00 - 14h30</p>
+            <p>18h00 - 22h30</p>
+        </div>
 
+        <div class="adresse">
+            <h4>Vite&Gourmand</h4>
+            <p>5 rue de Bordeaux</p>
+            <p>33000 Bordeaux</p>
+        </div>
+
+        <div class="contact">
+            <h4>Contact</h4>
+            <p>vite&gourmand@email.com</p>
+            <p>05 56 00 00 00</p>
+        </div>
+
+    </div>
+
+    <div class="droit-reserver">
+        <p>© 2026 Vite&Gourmand - Tous droits réservés</p>
+    </div>
+
+</footer>
+
+ <script src="script.js"></script>
 </body>
 </html>
