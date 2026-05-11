@@ -188,7 +188,42 @@ if (formInscription) {
 
         }
 
-        alert("Inscription réussie 🎉");
+        // ENVOI DES DONNEES AU BACKEND
+
+fetch("http://localhost:3000/inscription", {
+
+    method: "POST",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+
+        nom,
+        prenom,
+        telephone,
+        adresse,
+        adresseMail,
+        motDePasse
+
+    })
+
+})
+
+.then(response => response.json())
+
+.then(data => {
+
+    alert(data.message);
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+});
 
     });
 
@@ -226,7 +261,7 @@ if (formConnexion) {
 
         }
 
-        alert("Connexion réussie 🎉");
+        alert("Connexion réussie");
 
          localStorage.setItem("connecte", "true");
 
