@@ -236,23 +236,21 @@ document.getElementById("form-connexion");
 
 if (formConnexion) {
 
-    formConnexion.addEventListener("submit", (e) => {
+    formConnexion.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-        // RECUPERATION DES VALEURS
-
-        const emailConnexion =
+        const adresseMail =
         document.getElementById("emailConnexion").value;
 
-        const motDePasseConnexion =
+        const motDePasse =
         document.getElementById("motDePasseConnexion").value;
 
         // CHAMPS VIDES
 
         if (
-            emailConnexion === "" ||
-            motDePasseConnexion === ""
+            adresseMail === "" ||
+            motDePasse === ""
         ) {
 
             alert("Veuillez remplir tous les champs");
@@ -261,17 +259,60 @@ if (formConnexion) {
 
         }
 
-        alert("Connexion réussie");
+        try {
 
-         localStorage.setItem("connecte", "true");
+            const reponse =
+            await fetch(
+                "http://localhost:3000/connexion",
+                {
 
-         window.location.href = "index.html";
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        adresseMail,
+                        motDePasse
+
+                    })
+
+                }
+            );
+
+            const data =
+            await reponse.json();
+
+            alert(data.message);
+
+            // CONNEXION OK
+
+            if (reponse.ok) {
+
+                localStorage.setItem(
+                    "connecte",
+                    "true"
+                );
+
+                window.location.href =
+                "index.html";
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
+
     });
 
-    
-
 }
-
 // GESTION CONNEXION / DECONNEXION
 
 const btnConnexion =
