@@ -27,7 +27,7 @@
                     <li><a href="menus.html">Menu</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="galerie.html" class="commande">Galerie</a></li>
-                  <li><a href="#" class="connexion">Connexion</a></li>
+                  <li><a href="connexion.html" class="connexion" id="btn-connexion">Connexion</a></li>
                 </ul>
             </nav>
 
@@ -90,72 +90,115 @@
     </select>
 
 
-    <button class="btn-filtre">Rechercher</button>
+    <button id="btn-filtre" class="btn-filtre">Rechercher</button>
 
 </section>
 
 <section class="menus">
     <div class="menu-grid">
 
-        <!-- Menu noel -->
-        <div class="menu-card">
-            <img src="images/noel.avif">
-            <h3>Menu Noël</h3>
-            <p>Un menu raffiné pour vos repas de fin d’année</p>
+       <!-- Menu noel -->
+<div class="menu-card"
 
-            <ul>
-                <li>Minimum 6 personnes</li>
-                <li>À partir de 35€/pers</li>
-                <li>Réservation 3 semaines à l’avance</li>
-            </ul>
+     data-theme="noel"
+     data-price="35"
+     data-personnes="6"
+     data-allergene="lactose">
 
-            <button class="bouton-detail"><a href="menunoel.html">Voir le détail</a></button>
-        </div>
+    <img src="images/noel.avif">
 
+    <h3>Menu Noël</h3>
+
+    <p>Un menu raffiné pour vos repas de fin d’année</p>
+
+    <ul>
+        <li>Minimum 6 personnes</li>
+        <li>À partir de 35€/pers</li>
+        <li>Réservation 3 semaines à l’avance</li>
+    </ul>
+
+    <button class="bouton-detail">
+        <a href="menunoel.html">Voir le détail</a>
+    </button>
+
+</div>
         <!-- Menu paques -->
-        <div class="menu-card">
-            <img src="images/paques.jpg">
-            <h3>Menu Pâques</h3>
-            <p>Un menu festif pour célébrer</p>
+        <div class="menu-card"
 
-            <ul>
-                <li>Minimum 4 personnes</li>
-                <li>À partir de 30€/pers</li>
-                <li>Réservation 1 semaine</li>
-            </ul>
+     data-theme="paques"
+     data-price="30"
+     data-personnes="4"
+     data-allergene="gluten">
 
-            <button class="bouton-detail"><a href="menupaques.html">Voir le détail</a></button>
-        </div>
+    <img src="images/paques.jpg">
 
-        <!-- Menu mariage -->
-        <div class="menu-card">
-            <img src="images/mariages.jpg">
-            <h3>Menu Mariage</h3>
-            <p>Menu sur mesure pour événements</p>
+    <h3>Menu Pâques</h3>
 
-            <ul>
-                <li>Minimum 30 personnes</li>
-                <li>À partir de 75€/pers</li>
-                <li>Réservation 2 semaines</li>
-            </ul>
+    <p>Un menu festif pour célébrer</p>
 
-            <button class="bouton-detail"><a href="menumariages.html">Voir le détail</a></button>
-        </div>
+    <ul>
+        <li>Minimum 4 personnes</li>
+        <li>À partir de 30€/pers</li>
+        <li>Réservation 1 semaine</li>
+    </ul>
 
-        <!-- Menu classique -->
-        <div class="menu-card">
-            <img src="images/classique.avif">
-            <h3>Menu Classique</h3>
-            <p>Simple et savoureux</p>
+    <button class="bouton-detail">
+        <a href="menupaques.html">Voir le détail</a>
+    </button>
 
-            <ul>
-                <li>Minimum 2 personnes</li>
-                <li>À partir de 25€/pers</li>
-                <li>Réservation 48h</li>
-            </ul>
+</div>
 
-            <button class="bouton-detail"><a href="menuclassique.html">Voir le détail</a></button>
-        </div>
+       <!-- Menu mariage -->
+<div class="menu-card"
+
+     data-theme="mariage"
+     data-price="75"
+     data-personnes="20"
+     data-allergene="gluten">
+
+    <img src="images/mariages.jpg">
+
+    <h3>Menu Mariage</h3>
+
+    <p>Menu sur mesure pour événements</p>
+
+    <ul>
+        <li>Minimum 30 personnes</li>
+        <li>À partir de 75€/pers</li>
+        <li>Réservation 2 semaines</li>
+    </ul>
+
+    <button class="bouton-detail">
+        <a href="menumariages.html">Voir le détail</a>
+    </button>
+
+</div>
+
+      <!-- Menu classique -->
+<div class="menu-card"
+
+     data-theme="classique"
+     data-price="25"
+     data-personnes="2"
+     data-allergene="aucun">
+
+    <img src="images/classique.avif">
+
+    <h3>Menu Classique</h3>
+
+    <p>Simple et savoureux</p>
+
+    <ul>
+        <li>Minimum 2 personnes</li>
+        <li>À partir de 25€/pers</li>
+        <li>Réservation 48h</li>
+    </ul>
+
+    <button class="bouton-detail">
+        <a href="menuclassique.html">Voir le détail</a>
+    </button>
+
+</div>
 
     </div>
 </section>

@@ -13,6 +13,8 @@ body {
 }
 
 
+
+
 .container {
     max-width: 1200px;
     margin: auto;
@@ -74,6 +76,8 @@ body {
     font-size: 30px;
     cursor: pointer;
 }
+
+
 
 
 
@@ -384,21 +388,27 @@ body {
         position: absolute;
         top: 80px;
         right: 0;
-        background-color: #E8DFC5;
         width: 100%;
-        text-align: center;
-    }
-
-    .nav ul {
-        flex-direction: column;
-        padding: 20px 0;
+        background-color: #E8DFC5;
+        z-index: 1000;
     }
 
     .nav.active {
         display: block;
     }
 
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        margin: 0;
+    }
+
 }
+
+
 
 /* Page Menus  */
 
@@ -813,7 +823,145 @@ Galerie page  */
 
 }
 
+/* PAGE CONNEXION */
 
+.page-connexion {
+    background-color: #E8DFC5;
+
+    padding: 80px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* CARD */
+
+.connexion-container {
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    width: 400px;
+
+    text-align: center;
+}
+
+/* FORM */
+
+.connexion-formulaire {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+/* LIEN */
+
+.connexion-container a {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #7F1734;
+
+    text-decoration: none;
+}
+
+/* RESPONSIVE CONNEXION */
+
+@media (max-width: 768px) {
+
+    .connexion-container {
+        width: 100%;
+
+        padding: 30px 20px;
+    }
+}
+
+
+/* PAGE INSCRIPTION */
+
+.page-inscription {
+    background-color: #E8DFC5;
+
+    padding: 80px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* CARD */
+
+.inscription-container {
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    width: 450px;
+
+    text-align: center;
+}
+
+/* TITRE */
+
+.inscription-container h2 {
+    color: #7F1734;
+
+    margin-bottom: 30px;
+}
+
+/* FORMULAIRE */
+
+.inscription-formulaire {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+/* INPUTS */
+
+.inscription-formulaire input {
+    padding: 12px;
+
+    border: 2px solid #7F1734;
+
+    border-radius: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* BOUTON */
+
+.inscription-formulaire button {
+    background-color: #7F1734;
+    color: white;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* RESPONSIVE INSCRIPTION */
+
+@media (max-width: 768px) {
+
+    .inscription-container {
+        width: 100%;
+
+        padding: 30px 20px;
+    }
+}
 
 /* FOOTER */
 
@@ -854,3 +1002,4 @@ Galerie page  */
     margin-top: 30px;
     font-size: 14px;
 }
+

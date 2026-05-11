@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de noël</title>
+    <title>Connexion</title>
+
      <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -11,8 +12,7 @@
 
 </head>
 <body>
-
-     <!-- HEADER -->
+      <!-- HEADER -->
     <header class="header">
         <div class="container">
 
@@ -50,78 +50,49 @@
         <h2>
              <span class="vite">Vite</span>&<span class="gourmand">Gourmand</span>
         </h2>
-        <p>Des prestations culinaires d’exception</p>
-       
+        <p>Connexion a votre compte</p>
+        
     </div>
 </section>
 
-<!-- MAIN -->
+<!-- MAIN  -->
+<section class="page-connexion">
 
-<section class="menus-choice">
+    <div class="connexion-container">
 
-    <!-- MENU 1 -->
-    <div class="menu-card menu-noel1">
+        <h2>Connexion</h2>
 
-        <img src="images/classique.avif" alt="Menu 1">
+        <form class="connexion-formulaire"
+              id="form-connexion">
 
-        <h2>Menu 1 - 25€</h2>
+            <input type="email"
+                   id="emailConnexion"
+                   placeholder="Adresse mail">
 
-        <h3>Entrée</h3>
-        <p>Burrata crémeuse et tomates anciennes</p>
+            <input type="password"
+                   id="motDePasseConnexion"
+                   placeholder="Mot de passe">
 
-             <p>ou</p>
+            <button type="submit">
+                Connexion
+            </button>
 
-        <p>Velouté de champignons maison</p>
+        </form>
 
+        <a href="#">
+            Mot de passe oublié ?
+        </a>
 
-        <h3>Plat</h3>
-        <p>Pavé de saumon grillé, légumes rôtis</p>
-
-        <p>ou</p>
-
-        <p>Suprême de volaille sauce forestière, pommes grenailles</p>
-
-        <h3>Dessert</h3>
-        <p>Tiramisu maison</p>
-          <p>ou</p>
-          <p>Tarte fine aux pommes</p>
-
-          <button class="bouton-commande"><a href="#">Commander</a></button>
-
-    </div>
-
-    <!-- MENU 2 -->
-    <div class="menu-card menu-noel2">
-
-        <img src="images/boeuf.jpg" alt="Menu 2">
-
-        <h2>Menu 2 - 32€</h2>
-
-        <h3>Entrée</h3>
-        <p>Carpaccio de bœuf au parmesan</p>
-        <p>ou</p>
-        <p>Saumon fumé et blinis maison</p>
-
-        <h3>Plat</h3>
-        <p>Magret de canard sauce miel et thym</p>
-         <p>ou</p>
-         <p>Dos de cabillaud sauce citronnée, riz pilaf</p>
-
-        <h3>Dessert</h3>
-        <p>Panna cotta fruits rouges</p>
-        <p>ou</p>
-        <p>Moelleux chocolat cœur coulant</p>
-
-          <button class="bouton-commande"><a href="#">Commander</a></button>
+        <a href="inscription.html">
+            Pas encore de compte ? S'inscrire
+        </a>
 
     </div>
-
-     
 
 </section>
-   
-  
-    <!-- FOOTER -->
+
+
+<!-- FOOTER -->
   <footer class="footer">
 
     <div class="footer-content">
@@ -154,5 +125,6 @@
 </footer>
 
  <script src="script.js"></script>
+
 </body>
 </html>
