@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de noël</title>
+    <title>Menu de mariages</title>
      <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -26,7 +26,15 @@
                     <li><a href="menus.html">Menu</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="galerie.html" class="commande">Galerie</a></li>
-                  <li><a href="connexion.html" class="connexion" id="btn-connexion">Connexion</a></li>
+                    <!-- CONNEXION -->
+
+                   <li id="connexion-client"> <a href="connexion.html" class="connexion" id="btn-connexion"> Connexion </a></li>
+
+        <!-- MON ESPACE -->
+           <li id="espace-client" style="display: none;"> <a href="profils.html"> Mon espace </a></li>
+
+        <!-- DECONNEXION -->
+           <li id="deconnexion-client" style="display: none;" > <a href="#" id="btn-deconnexion" > Déconnexion</a> </li>
                 </ul>
             </nav>
 
@@ -87,7 +95,7 @@
           <p>ou</p>
           <p>Entremet vanille fruits rouges</p>
 
-          <button class="bouton-commande"><a href="#">Commander</a></button>
+          <button class="bouton-commande"><a href="commande.html?menu=Menu 1 Mariages">Commander</a></button>
 
     </div>
 
@@ -115,7 +123,7 @@
         <p>ou</p>
         <p>Pavlova exotique mangue passion</p>
 
-          <button class="bouton-commande"><a href="#">Commander</a></button>
+          <button class="bouton-commande"><a href="commande.html?menu=Menu 2 Mariages">Commander</a></button>
 
     </div>
 

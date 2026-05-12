@@ -1,3 +1,6 @@
+
+
+
 // MENU BURGER
 
 const burger = document.getElementById("burger");
@@ -297,6 +300,11 @@ if (formConnexion) {
                     "true"
                 );
 
+                 localStorage.setItem(
+                    "adresseMail",
+                     adresseMail
+     );
+
                 window.location.href =
                 "index.html";
 
@@ -315,28 +323,390 @@ if (formConnexion) {
 }
 // GESTION CONNEXION / DECONNEXION
 
-const btnConnexion =
-document.getElementById("btn-connexion");
 
-if (btnConnexion) {
+ const connexionClient =
+document.getElementById("connexion-client");
 
-    // UTILISATEUR CONNECTE
+const espaceClient =
+document.getElementById("espace-client");
 
-    if (localStorage.getItem("connecte") === "true") {
+const deconnexionClient =
+document.getElementById("deconnexion-client");
 
-        btnConnexion.textContent = "Déconnexion";
 
-        btnConnexion.href = "#";
+// UTILISATEUR CONNECTE
 
-        btnConnexion.addEventListener("click", () => {
+if (localStorage.getItem("connecte") === "true") {
 
-            localStorage.removeItem("connecte");
+    // CACHE CONNEXION
 
-            window.location.reload();
+    connexionClient.style.display =
+    "none";
 
-        });
+    // AFFICHE ESPACE
+
+    espaceClient.style.display =
+    "block";
+
+    // AFFICHE DECONNEXION
+
+    deconnexionClient.style.display =
+    "block";
+
+}
+
+
+// DECONNEXION
+
+const btnDeconnexion =
+document.getElementById("btn-deconnexion");
+
+if (btnDeconnexion) {
+
+    btnDeconnexion.addEventListener("click", () => {
+
+        localStorage.removeItem("connecte");
+
+        window.location.href =
+        "connexion.html";
+
+    });
+
+}
+
+    
+
+
+// page commande menu
+
+
+const menuChoisi =
+document.getElementById("menuChoisi");
+
+if (menuChoisi) {
+
+    const params =
+    new URLSearchParams(window.location.search);
+
+    const menu =
+    params.get("menu");
+
+    menuChoisi.textContent =
+    `Menu sélectionné : ${menu}`;
+
+}
+
+// FORMULAIRE COMMANDE
+
+const formCommande =
+document.getElementById("formCommande");
+
+if (formCommande) {
+
+formCommande.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const nom =
+    document.getElementById("nomCommande").value;
+
+    const adresseMail =
+    document.getElementById("emailCommande").value;
+
+    const nombrePersonnes =
+    document.getElementById("nombrePersonnes").value;
+
+    const dateReservation =
+    document.getElementById("dateCommande").value;
+
+    const message =
+    document.getElementById("messageCommande").value;
+
+    const params =
+new URLSearchParams(window.location.search);
+
+const menu =
+params.get("menu");
+
+
+    try {
+
+        const reponse =
+        await fetch(
+            "http://localhost:3000/commande",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    menu,
+                    nom,
+                    adresseMail,
+                    nombrePersonnes,
+                    dateReservation,
+                    message
+
+                })
+
+            }
+        );
+
+        const data =
+        await reponse.json();
+
+        alert(data.message);
+
+        formCommande.reset();
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+});
+
+}
+
+// EMAIL UTILISATEUR
+
+const adresseMail =
+localStorage.getItem("adresseMail");
+
+// RECUPERATION PROFIL
+
+async function chargerProfil() {
+
+    try {
+
+        const reponse =
+        await fetch(
+            `http://localhost:3000/profil/${adresseMail}`
+        );
+
+        const utilisateur =
+        await reponse.json();
+
+        // AFFICHAGE PROFIL
+
+        document.getElementById(
+            "profilNom"
+        ).value =
+        utilisateur.nom;
+
+        document.getElementById(
+               "profilPrenom"
+        ).value =
+        utilisateur.prenom;
+
+        document.getElementById(
+            "profilEmail"
+        ).value =
+        utilisateur.adresseMail;
+
+        document.getElementById(
+            "profilTelephone"
+        ).value =
+        utilisateur.telephone;
+
+    }
+
+    catch (error) {
+
+        console.log(error);
 
     }
 
 }
 
+// RECUPERATION COMMANDES
+
+async function chargerCommandes() {
+
+    try {
+
+        const reponse =
+        await fetch(
+            `http://localhost:3000/mes-commandes/${adresseMail}`
+        );
+
+        const commandes =
+        await reponse.json();
+
+        const container =
+        document.getElementById(
+            "commandesContainer"
+        );
+
+        container.innerHTML = "";
+
+        commandes.forEach((commande) => {
+
+            container.innerHTML += `
+
+            <div class="commande-card">
+
+                <h3>
+                    ${commande.menu}
+                </h3>
+
+                <p>
+                    ${commande.nombrePersonnes}
+                    personnes
+                </p>
+
+                <p>
+                    Date :
+                    ${commande.dateReservation}
+                </p>
+
+                <p class="statut">
+
+                    Statut :
+                    En attente
+
+                </p>
+
+                <button class="btn-commande" onclick="supprimerCommande('${commande._id}')">Annuler </button>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// LANCEMENT
+
+chargerProfil();
+
+chargerCommandes();
+
+// SUPPRESSION COMMANDE
+
+async function supprimerCommande(id) {
+
+    try {
+
+        const reponse =
+        await fetch(
+            `http://localhost:3000/commande/${id}`,
+            {
+
+                method: "DELETE"
+
+            }
+        );
+
+        const data =
+        await reponse.json();
+
+        alert(data.message);
+
+        // RECHARGER COMMANDES
+
+        chargerCommandes();
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// MODIFICATION PROFIL
+
+const btnModifierProfil =
+document.getElementById(
+    "btnModifierProfil"
+);
+
+if (btnModifierProfil) {
+
+    btnModifierProfil.addEventListener(
+        "click",
+        async () => {
+
+        const nom =
+        document.getElementById(
+            "profilNom"
+        ).value;
+
+        const prenom =
+        document.getElementById(
+           "profilPrenom"
+        ).value;
+
+        const telephone =
+        document.getElementById(
+            "profilTelephone"
+        ).value;
+
+        try {
+
+            const reponse =
+            await fetch(
+
+                `http://localhost:3000/profil/${adresseMail}`,
+
+                {
+
+                    method: "PUT",
+
+                    headers: {
+
+                        "Content-Type":
+                        "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        nom,
+                        prenom,
+                        telephone
+
+                    })
+
+                }
+
+            );
+
+            const data =
+            await reponse.json();
+
+            alert(data.message);
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
+
+    });
+
+}
