@@ -193,7 +193,7 @@ if (formInscription) {
 
         // ENVOI DES DONNEES AU BACKEND
 
-fetch("http://localhost:3000/inscription", {
+fetch("https://vite-gourmand-api-kgvk.onrender.com/inscription", {
 
     method: "POST",
 
@@ -275,7 +275,7 @@ if (formConnexion) {
                 const reponse =
                 await fetch(
 
-                    "http://localhost:3000/connexion",
+                    "https://vite-gourmand-api-kgvk.onrender.com/connexion",
 
                     {
 
@@ -521,7 +521,7 @@ params.get("menu");
 
         const reponse =
         await fetch(
-            "http://localhost:3000/commande",
+            "https://vite-gourmand-api-kgvk.onrender.com/commande",
             {
 
                 method: "POST",
@@ -577,7 +577,7 @@ async function chargerProfil() {
 
         const reponse =
         await fetch(
-            `http://localhost:3000/profil/${adresseMail}`
+            `https://vite-gourmand-api-kgvk.onrender.com/profil/${adresseMail}`
         );
 
         const utilisateur =
@@ -623,7 +623,7 @@ async function chargerCommandes() {
 
         const reponse =
         await fetch(
-            `http://localhost:3000/mes-commandes/${adresseMail}`
+            `https://vite-gourmand-api-kgvk.onrender.com/mes-commandes/${adresseMail}`
         );
 
         const commandes =
@@ -696,7 +696,7 @@ async function supprimerCommande(id) {
 
         const reponse =
         await fetch(
-            `http://localhost:3000/commande/${id}`,
+            `https://vite-gourmand-api-kgvk.onrender.com/commande/${id}`,
             {
 
                 method: "DELETE"
@@ -756,7 +756,7 @@ if (btnModifierProfil) {
                 const reponse =
                 await fetch(
 
-                    `http://localhost:3000/profil/${adresseMail}`,
+                    `https://vite-gourmand-api-kgvk.onrender.com/profil/${adresseMail}`,
 
                     {
 
@@ -809,7 +809,7 @@ async function chargerToutesCommandes() {
 
         const reponse =
         await fetch(
-            "http://localhost:3000/commandes"
+            "https://vite-gourmand-api-kgvk.onrender.com/commandes"
         );
 
         const commandes =
@@ -969,7 +969,7 @@ async function chargerUsers() {
 
         const reponse =
         await fetch(
-            "http://localhost:3000/users"
+            "https://vite-gourmand-api-kgvk.onrender.com/users"
         );
 
         const users =
@@ -1052,7 +1052,7 @@ async function supprimerUser(id) {
         const reponse =
         await fetch(
 
-            `http://localhost:3000/user/${id}`,
+            `https://vite-gourmand-api-kgvk.onrender.com/user/${id}`,
 
             {
 
@@ -1091,7 +1091,7 @@ async function supprimerCommandeAdmin(id) {
         const reponse =
         await fetch(
 
-            `http://localhost:3000/commande/${id}`,
+            `https://vite-gourmand-api-kgvk.onrender.com/commande/${id}`,
 
             {
 
@@ -1130,7 +1130,7 @@ async function modifierStatut(id, statut) {
         const reponse =
         await fetch(
 
-            `http://localhost:3000/commande/${id}`,
+            `https://vite-gourmand-api-kgvk.onrender.com/commande/${id}`,
 
             {
 
