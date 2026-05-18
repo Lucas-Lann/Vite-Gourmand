@@ -30,6 +30,11 @@ new mongoose.Schema({
 
     message: {
         type: String
+    },
+
+    statut: {
+        type: String,
+        default: "En attente"
     }
 
 });

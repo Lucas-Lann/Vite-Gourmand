@@ -84,9 +84,14 @@ if (!motDePasseValide) {
 
         // CONNEXION OK
 
-        res.json({
-            message: "Connexion réussie"
-        });
+       res.json({
+
+    message: "Connexion réussie",
+
+    role:
+    utilisateur.role
+
+});
 
     }
 
@@ -290,6 +295,112 @@ app.put("/profil/:email", async (req, res) => {
 
 });
 
+
+// TOUTES LES COMMANDES
+
+app.get("/commandes", async (req, res) => {
+
+    try {
+
+        const commandes =
+        await Commande.find();
+
+        res.json(commandes);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+});
+
+
+// TOUS LES UTILISATEURS
+
+app.get("/users", async (req, res) => {
+
+    try {
+
+        const users =
+        await User.find();
+
+        res.json(users);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+});
+
+
+// SUPPRESSION USER
+
+app.delete("/user/:id", async (req, res) => {
+
+    try {
+
+        await User.findByIdAndDelete(
+            req.params.id
+        );
+
+        res.json({
+            message:
+            "Utilisateur supprimé"
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+});
+
+
+// MODIFIER STATUT COMMANDE
+
+app.put("/commande/:id", async (req, res) => {
+
+    try {
+
+        await Commande.findByIdAndUpdate(
+
+            req.params.id,
+
+            {
+
+                statut:
+                req.body.statut
+
+            }
+
+        );
+
+        res.json({
+
+            message:
+            "Statut modifié"
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+});
 
 // LANCEMENT SERVEUR
 

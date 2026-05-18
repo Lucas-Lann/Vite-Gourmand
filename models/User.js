@@ -31,6 +31,11 @@ const userSchema = new mongoose.Schema({
     motDePasse: {
         type: String,
         required: true
+    },
+
+    role: {
+        type: String,
+        default: "client"
     }
 
 });

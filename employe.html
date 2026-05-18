@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Employé</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="container">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="images/logo.png"
+                    alt="Logo Vite&Gourmand"
+                >
+
+            </a>
+
+        </div>
+
+        <nav class="nav" id="nav">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Accueil
+                    </a>
+                </li>
+
+                <li>
+                    <a href="menus.html">
+                        Menu
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="galerie.html"
+                        class="commande"
+                    >
+
+                        Galerie
+
+                    </a>
+                </li>
+
+                <!-- MON ESPACE -->
+
+                <li
+                    id="espace-client"
+                    style="display: none;"
+                >
+
+                    <a href="profils.html">
+
+                        Mon espace
+
+                    </a>
+
+                </li>
+
+                <li id="espace-employe" style="display: none;"><a href="employe.html">Espace employé</a></li>
+
+                <!-- ESPACE EMPLOYE -->
+
+                <li id="espace-employe" style="display: none;" > <a href="employe.html">  Espace employé </a></li>
+
+                 <li id="espace-admin" style="display: none;"><a href="admin.html">  Espace admin </a></li>
+
+                <!-- CONNEXION -->
+
+                <li id="connexion-client">
+
+                    <a
+                        href="connexion.html"
+                        class="connexion"
+                        id="btn-connexion"
+                    >
+
+                        Connexion
+
+                    </a>
+
+                </li>
+
+                <!-- DECONNEXION -->
+
+                <li
+                    id="deconnexion-client"
+                    style="display: none;"
+                >
+
+                    <a
+                        href="#"
+                        id="btn-deconnexion"
+                    >
+
+                        Déconnexion
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="burger" id="burger">
+
+            ☰
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>
+
+            Espace Employé
+
+        </h2>
+
+        <p>
+
+            Gestion des commandes clients
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- COMMANDES -->
+
+<section class="commandes-section">
+
+    <h2 class="titre-commandes">
+
+        Toutes les commandes
+
+    </h2>
+
+    <div
+        class="commandes-container"
+        id="adminCommandesContainer"
+    >
+
+    </div>
+
+</section>
+    
+ <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="horaires">
+            <h4>Horaires</h4>
+            <p>Lundi - Dimanche</p>
+            <p>12h00 - 14h30</p>
+            <p>18h00 - 22h30</p>
+        </div>
+
+        <div class="adresse">
+            <h4>Vite&Gourmand</h4>
+            <p>5 rue de Bordeaux</p>
+            <p>33000 Bordeaux</p>
+        </div>
+
+        <div class="contact">
+            <h4>Contact</h4>
+            <p>vite&gourmand@email.com</p>
+            <p>05 56 00 00 00</p>
+        </div>
+
+    </div>
+
+    <div class="droit-reserver">
+        <p>© 2026 Vite&Gourmand - Tous droits réservés</p>
+    </div>
+
+</footer>
+
+ <script src="script.js"></script>
+</body>
+</html>

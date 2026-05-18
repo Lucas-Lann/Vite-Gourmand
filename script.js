@@ -239,89 +239,129 @@ document.getElementById("form-connexion");
 
 if (formConnexion) {
 
-    formConnexion.addEventListener("submit", async (e) => {
+    formConnexion.addEventListener(
+        "submit",
+        async (e) => {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const adresseMail =
-        document.getElementById("emailConnexion").value;
+            const adresseMail =
+            document.getElementById(
+                "emailConnexion"
+            ).value;
 
-        const motDePasse =
-        document.getElementById("motDePasseConnexion").value;
+            const motDePasse =
+            document.getElementById(
+                "motDePasseConnexion"
+            ).value;
 
-        // CHAMPS VIDES
+            // CHAMPS VIDES
 
-        if (
-            adresseMail === "" ||
-            motDePasse === ""
-        ) {
+            if (
+                adresseMail === "" ||
+                motDePasse === ""
+            ) {
 
-            alert("Veuillez remplir tous les champs");
-
-            return;
-
-        }
-
-        try {
-
-            const reponse =
-            await fetch(
-                "http://localhost:3000/connexion",
-                {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        adresseMail,
-                        motDePasse
-
-                    })
-
-                }
-            );
-
-            const data =
-            await reponse.json();
-
-            alert(data.message);
-
-            // CONNEXION OK
-
-            if (reponse.ok) {
-
-                localStorage.setItem(
-                    "connecte",
-                    "true"
+                alert(
+                    "Veuillez remplir tous les champs"
                 );
 
-                 localStorage.setItem(
-                    "adresseMail",
-                     adresseMail
-     );
+                return;
 
-                window.location.href =
-                "index.html";
+            }
+
+            try {
+
+                const reponse =
+                await fetch(
+
+                    "http://localhost:3000/connexion",
+
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                            "application/json"
+
+                        },
+
+                        body: JSON.stringify({
+
+                            adresseMail,
+                            motDePasse
+
+                        })
+
+                    }
+
+                );
+
+                const data =
+                await reponse.json();
+
+                console.log(data);
+
+                alert(data.message);
+
+                // CONNEXION OK
+
+                if (reponse.ok) {
+
+                    localStorage.setItem(
+                        "connecte",
+                        "true"
+                    );
+
+                    localStorage.setItem(
+                        "adresseMail",
+                        adresseMail
+                    );
+
+                    localStorage.setItem(
+                        "role",
+                        data.role
+                    );
+
+                    // EMPLOYE
+
+                    if (
+                        data.role === "employe"
+                    ) {
+
+                        window.location.href =
+                        "employe.html";
+
+                    }
+
+                    // CLIENT
+
+                    else {
+
+                        window.location.href =
+                        "index.html";
+
+                    }
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.log(error);
 
             }
 
         }
 
-        catch (error) {
-
-            console.log(error);
-
-        }
-
-    });
+    );
 
 }
-// GESTION CONNEXION / DECONNEXION
+
+            
 
 
  const connexionClient =
@@ -332,6 +372,14 @@ document.getElementById("espace-client");
 
 const deconnexionClient =
 document.getElementById("deconnexion-client");
+
+const espaceEmploye =
+document.getElementById("espace-employe");
+
+const espaceAdmin =
+document.getElementById(
+    "espace-admin"
+);
 
 
 // UTILISATEUR CONNECTE
@@ -353,24 +401,64 @@ if (localStorage.getItem("connecte") === "true") {
     deconnexionClient.style.display =
     "block";
 
+    // EMPLOYE
+
+if (
+    localStorage.getItem("role")
+    === "employe"
+) {
+
+    espaceEmploye.style.display =
+    "block";
+
+}
+
+// ADMIN
+
+if (
+    localStorage.getItem("role")
+    === "admin"
+) {
+
+    espaceAdmin.style.display =
+    "block";
+
+}
+
 }
 
 
 // DECONNEXION
 
 const btnDeconnexion =
-document.getElementById("btn-deconnexion");
+document.getElementById(
+    "btn-deconnexion"
+);
 
 if (btnDeconnexion) {
 
-    btnDeconnexion.addEventListener("click", () => {
+    btnDeconnexion.addEventListener(
+        "click",
+        () => {
 
-        localStorage.removeItem("connecte");
+            localStorage.removeItem(
+                "connecte"
+            );
 
-        window.location.href =
-        "connexion.html";
+            localStorage.removeItem(
+                "adresseMail"
+            );
 
-    });
+            localStorage.removeItem(
+                "role"
+            );
+
+            window.location.href =
+            "connexion.html";
+
+        }
+
+    );
 
 }
 
@@ -571,7 +659,7 @@ async function chargerCommandes() {
                 <p class="statut">
 
                     Statut :
-                    En attente
+                    ${commande.statut}
 
                 </p>
 
@@ -635,7 +723,6 @@ async function supprimerCommande(id) {
 
 }
 
-
 // MODIFICATION PROFIL
 
 const btnModifierProfil =
@@ -649,64 +736,440 @@ if (btnModifierProfil) {
         "click",
         async () => {
 
-        const nom =
-        document.getElementById(
-            "profilNom"
-        ).value;
+            const nom =
+            document.getElementById(
+                "profilNom"
+            ).value;
 
-        const prenom =
-        document.getElementById(
-           "profilPrenom"
-        ).value;
+            const prenom =
+            document.getElementById(
+                "profilPrenom"
+            ).value;
 
-        const telephone =
-        document.getElementById(
-            "profilTelephone"
-        ).value;
+            const telephone =
+            document.getElementById(
+                "profilTelephone"
+            ).value;
 
-        try {
+            try {
 
-            const reponse =
-            await fetch(
+                const reponse =
+                await fetch(
 
-                `http://localhost:3000/profil/${adresseMail}`,
+                    `http://localhost:3000/profil/${adresseMail}`,
 
-                {
+                    {
 
-                    method: "PUT",
+                        method: "PUT",
 
-                    headers: {
+                        headers: {
 
-                        "Content-Type":
-                        "application/json"
+                            "Content-Type":
+                            "application/json"
 
-                    },
+                        },
 
-                    body: JSON.stringify({
+                        body: JSON.stringify({
 
-                        nom,
-                        prenom,
-                        telephone
+                            nom,
+                            prenom,
+                            telephone
 
-                    })
+                        })
 
-                }
+                    }
 
-            );
+                );
 
-            const data =
-            await reponse.json();
+                const data =
+                await reponse.json();
 
-            alert(data.message);
+                alert(data.message);
+
+            }
+
+            catch (error) {
+
+                console.log(error);
+
+            }
 
         }
 
-        catch (error) {
+    );
 
-            console.log(error);
+}
+
+
+// ESPACE EMPLOYE
+
+async function chargerToutesCommandes() {
+
+    try {
+
+        const reponse =
+        await fetch(
+            "http://localhost:3000/commandes"
+        );
+
+        const commandes =
+        await reponse.json();
+
+        console.log(commandes);
+        console.log(reponse);
+
+        const container =
+        document.getElementById(
+            "adminCommandesContainer"
+        );
+
+        // SI PAS SUR employe.html
+
+        if (!container) {
+
+            return;
 
         }
 
-    });
+        container.innerHTML = "";
+
+        commandes.forEach((commande) => {
+
+            container.innerHTML += `
+
+            <div class="commande-card">
+
+                <h3>
+                    ${commande.menu}
+                </h3>
+
+                <p>
+
+                    Client :
+                    ${commande.nom}
+
+                </p>
+
+                <p>
+
+                    ${commande.nombrePersonnes}
+                    personnes
+
+                </p>
+
+                <p>
+
+                    Date :
+                    ${commande.dateReservation}
+
+                </p>
+
+                <p class="statut">
+
+                  Statut :
+                    ${commande.statut || "En attente"}
+
+                </p>
+
+                <select
+                   onchange="modifierStatut(
+                         '${commande._id}',
+                        this.value
+                                  )"
+                        >
+
+    <option
+    ${commande.statut === "En attente"
+    ? "selected"
+    : ""}
+>
+
+    En attente
+
+</option>
+
+<option
+    ${commande.statut === "Accepté"
+    ? "selected"
+    : ""}
+>
+
+    Accepté
+
+</option>
+
+<option
+    ${commande.statut === "En préparation"
+    ? "selected"
+    : ""}
+>
+
+    En préparation
+
+</option>
+
+<option
+    ${commande.statut === "Livré"
+    ? "selected"
+    : ""}
+>
+
+    Livré
+
+</option>
+
+<option
+    ${commande.statut === "Terminée"
+    ? "selected"
+    : ""}
+>
+
+    Terminée
+
+</option>
+
+</select>
+
+                <button
+                   class="btn-commande"
+                    onclick="supprimerCommandeAdmin('${commande._id}')"
+                      >
+
+    Supprimer
+
+</button>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// LANCEMENT ESPACE EMPLOYE
+
+chargerToutesCommandes(); 
+
+
+// ESPACE ADMIN
+
+async function chargerUsers() {
+
+    try {
+
+        const reponse =
+        await fetch(
+            "http://localhost:3000/users"
+        );
+
+        const users =
+        await reponse.json();
+
+        const container =
+        document.getElementById(
+            "adminUsersContainer"
+        );
+
+        // SI PAS SUR admin.html
+
+        if (!container) {
+
+            return;
+
+        }
+
+        container.innerHTML = "";
+
+        users.forEach((user) => {
+
+            container.innerHTML += `
+
+            <div class="commande-card">
+
+                <h3>
+                    ${user.nom}
+                </h3>
+
+                <p>
+
+                    ${user.adresseMail}
+
+                </p>
+
+                <p>
+
+    Role :
+    ${user.role}
+
+</p>
+
+<button
+    class="btn-commande"
+    onclick="supprimerUser('${user._id}')"
+>
+
+    Supprimer
+
+</button>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// LANCEMENT ADMIN
+
+chargerUsers();
+
+// SUPPRESSION USER
+
+async function supprimerUser(id) {
+
+    try {
+
+        const reponse =
+        await fetch(
+
+            `http://localhost:3000/user/${id}`,
+
+            {
+
+                method: "DELETE"
+
+            }
+
+        );
+
+        const data =
+        await reponse.json();
+
+        alert(data.message);
+
+        // RELOAD USERS
+
+        chargerUsers();
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// SUPPRESSION COMMANDE ADMIN
+
+async function supprimerCommandeAdmin(id) {
+
+    try {
+
+        const reponse =
+        await fetch(
+
+            `http://localhost:3000/commande/${id}`,
+
+            {
+
+                method: "DELETE"
+
+            }
+
+        );
+
+        const data =
+        await reponse.json();
+
+        alert(data.message);
+
+        // RELOAD COMMANDES
+
+        chargerToutesCommandes();
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+
+// MODIFIER STATUT
+
+async function modifierStatut(id, statut) {
+
+    try {
+
+        const reponse =
+        await fetch(
+
+            `http://localhost:3000/commande/${id}`,
+
+            {
+
+                method: "PUT",
+
+                headers: {
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    statut
+
+                })
+
+            }
+
+        );
+
+        const data =
+        await reponse.json();
+
+        alert(data.message);
+
+        setTimeout(() => {
+
+    chargerToutesCommandes();
+
+}, 300);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
 
 }
