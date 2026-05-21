@@ -332,7 +332,7 @@ body {
         display: block;
         font-size: 30px;
         cursor: pointer;
-        color: #7F1734;
+        color: black;
     }
 
     /* NAVIGATION */
@@ -369,46 +369,83 @@ body {
         text-align: center;
     }
 
-    /* PRESENTATION */
-    .presentation-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
+    .presentation,
+.Lagalerie {
+    max-height: none ;
+    height: auto ;
+    padding-bottom: 40px;
+}
 
-    .presentation .text {
-        max-width: 80%;
-    }
+/* PRESENTATION */
+.presentation-content {
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+    justify-content: center ;
+    text-align: center;
+    gap: 10px ;
+    padding : 10 px; 
+}
 
-    .presentation img {
-        width: 80%;
-        height: auto;
-    }
+/* GALERIE */
 
-    /* PRODUITS */
-    .produits-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
+.Lagalerie-content {
+    display: flex ;
+    flex-direction: row-reverse;
+    align-items: center ;
+    justify-content: center ;
+    text-align: center;
+    gap: 20px ;
+    padding : 10 px; 
+}
 
-    .produits-content img {
-        width: 90%;
-        max-width: 300px;
-        height: auto;
-    }
+/* TEXTE */
+.presentation-content .text,
+.Lagalerie-content .text {
+    width: 50%;
+    font-size: 14px;
+}
 
-    /* AVIS */
-    .avis-container {
-        flex-direction: column;
-        align-items: center;
-    }
+/* IMAGE CONTAINER */
+.presentation-content .image,
+.Lagalerie-content .image {
+    width: 50%;
+    display: flex ;
+    justify-content: center ;
+}
 
-    /* FOOTER */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+/* IMAGES */
+.presentation-content img,
+.Lagalerie-content img {
+    width: 100% ;
+    max-width: 180px ;
+    height: auto ;
+}
+
+/* BOUTONS */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* AVIS */
+.avis-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+     
+}
+
+/* FOOTER */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
 }
 
 
