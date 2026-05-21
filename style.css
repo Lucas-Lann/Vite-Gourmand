@@ -319,72 +319,23 @@ body {
 
 
 
-/* RESPONSIVE  */
-
 @media (max-width: 768px) {
 
     .header .container {
         flex-direction: row;
-    }
-
-   
-    .nav ul {
-        display: none; 
-    }
-
-    .hero {
-        height: 300px;
-    }
-
-    .hero-content h2 {
-        font-size: 24px;
-        text-align: center;
-    }
-
-    
-    .presentation-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .presentation .text {
-        max-width: 80%;
-    }
-
-    .presentation img {
-        width: 80%;
-        height: auto;
-    }
-
-    
-    .produits-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-
-    .avis-container {
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
     }
 
-    
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-}
-
-/* Menu burger mobile  */
-
-@media (max-width: 768px) {
-
+    /* BURGER */
     .burger {
         display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: #7F1734;
     }
 
+    /* NAVIGATION */
     .nav {
         display: none;
         position: absolute;
@@ -408,8 +359,57 @@ body {
         margin: 0;
     }
 
-}
+    /* HERO */
+    .hero {
+        height: 300px;
+    }
 
+    .hero-content h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    /* PRESENTATION */
+    .presentation-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .presentation .text {
+        max-width: 80%;
+    }
+
+    .presentation img {
+        width: 80%;
+        height: auto;
+    }
+
+    /* PRODUITS */
+    .produits-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .produits-content img {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    /* AVIS */
+    .avis-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* FOOTER */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 
 /* Page Menus  */
