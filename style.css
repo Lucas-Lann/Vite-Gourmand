@@ -347,11 +347,11 @@ body {
     }
 
     .presentation .text {
-        max-width: 100%;
+        max-width: 80%;
     }
 
     .presentation img {
-        width: 100%;
+        width: 80%;
         height: auto;
     }
 
